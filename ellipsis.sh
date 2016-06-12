@@ -9,21 +9,35 @@
 
 # Install package
 pkg.install() {
-    : #TODO
+    if ! utils.cmd_exists ellipsis-compiler; then
+        ellipsis install ellipsis-compiler
+    fi
+
+    ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
 }
 
 ##############################################################################
 
 # Link package
 pkg.link() {
-    : #TODO
+    fs.link_file "$PKG_PATH/xmodmap"
+}
+
+##############################################################################
+
+pkg.pull(){
+    # Update dot-x repo
+    git.pull
+
+    # Update the config files
+    ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
 }
 
 ##############################################################################
 
 # Unlink package
 pkg.unlink() {
-    : #TODO
+    hooks.unlink
 }
 
 ##############################################################################

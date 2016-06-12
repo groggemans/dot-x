@@ -1,0 +1,24 @@
+##############################################################################
+# @file xmodmap.econf
+# @date June, 2016
+# @author G. Roggemans <g.roggemans@grog.be>
+# @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
+# @license MIT
+##############################################################################
+
+clear Lock
+keycode 66 = Hyper_L
+add mod4 = Hyper_L
+
+##############################################################################
+# Local config
+
+#_> if [ -f ~/.local/x/xmodmap.econf ]; then
+#_>    include ~/.local/x/xmodmap.econf
+#_> fi
+
+#_> if [ -f ~/.local/x/xmodmap ]; then
+#_>    include_raw ~/.local/x/xmodmap
+#_> fi
+
+##############################################################################
