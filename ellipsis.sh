@@ -13,7 +13,8 @@ pkg.install() {
         ellipsis install ellipsis-compiler
     fi
 
-    ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
+    EC_COMMENT='!'\
+        ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
 }
 
 ##############################################################################
@@ -30,7 +31,8 @@ pkg.pull(){
     git.pull
 
     # Update the config files
-    ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
+    EC_COMMENT='!'\
+        ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
 }
 
 ##############################################################################
