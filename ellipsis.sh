@@ -22,6 +22,7 @@ pkg.install() {
 # Link package
 pkg.link() {
     fs.link_file "$PKG_PATH" "$ELLIPSIS_HOME/.config/x"
+    fs.link_file "$PKG_PATH/xinitrc"
 }
 
 ##############################################################################
