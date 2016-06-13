@@ -5,8 +5,8 @@
 # @license MIT
 ##############################################################################
 
-if [ -f "$HOME/.config/x/xmodmap" ]; then
-    xmodmap "$HOME/.config/x/xmodmap"
+if [ -f "$HOME/.config/x/Xmodmap" ]; then
+    xmodmap "$HOME/.config/x/Xmodmap"
 fi
 
 ##############################################################################

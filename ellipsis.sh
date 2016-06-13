@@ -14,7 +14,7 @@ pkg.install() {
     fi
 
     EC_COMMENT='!'\
-        ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
+        ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
 }
 
 ##############################################################################
@@ -23,6 +23,7 @@ pkg.install() {
 pkg.link() {
     fs.link_file "$PKG_PATH" "$ELLIPSIS_HOME/.config/x"
     fs.link_file "$PKG_PATH/xinitrc"
+    fs.link_file "$PKG_PATH/Xmodmap"
 }
 
 ##############################################################################
@@ -33,7 +34,7 @@ pkg.pull(){
 
     # Update the config files
     EC_COMMENT='!'\
-        ellipsis-compiler "$PKG_PATH/xmodmap.econf" "$PKG_PATH/xmodmap"
+        ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
 }
 
 ##############################################################################
