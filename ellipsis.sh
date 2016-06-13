@@ -41,6 +41,7 @@ pkg.pull(){
 
 # Unlink package
 pkg.unlink() {
+    rm "$ELLIPSIS_HOME/.config/x"
     hooks.unlink
 }
 
