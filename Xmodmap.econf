@@ -13,10 +13,10 @@ add mod4 = Hyper_L
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Local config
 
-!!_> if [ -f ~/.local/x/Xmodmap.econf ]; then*/
-!!_>    include ~/.local/x/Xmodmap.econf*/
-!!_> elif [ -f ~/.local/x/Xmodmap ]; then*/
-!!_>    include_raw ~/.local/x/Xmodmap*/
-!!_> fi*/
+!_> if [ -f ~/.local/x/Xmodmap.econf ]; then
+!_>    include ~/.local/x/Xmodmap.econf
+!_> elif [ -f ~/.local/x/Xmodmap ]; then
+!_>    include_raw ~/.local/x/Xmodmap
+!_> fi
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
