@@ -8,3 +8,12 @@
 #@TODO: implementation
 
 ##############################################################################
+# Local config
+
+#_> if [ -f ~/.local/x/xinputrc.econf ]; then
+#_>    include ~/.local/x/xinputrc.econf
+#_> elif [ -f ~/.local/x/xinputrc ]; then
+#_>    include_raw ~/.local/x/xinputrc
+#_> fi
+
+##############################################################################
