@@ -10,7 +10,7 @@ if [ -f "$HOME/.config/x/Xmodmap" ]; then
 fi
 
 if [ -f "$HOME/.config/x/xinputrc" ]; then
-    xmodmap "$HOME/.config/x/xinputrc"
+    "$HOME/.config/x/xinputrc"
 fi
 
 ##############################################################################

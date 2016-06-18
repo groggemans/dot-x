@@ -15,7 +15,8 @@ pkg.install() {
 
     EC_COMMENT='!'\
         ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
-    ellipsis-compiler "$PKG_PATH/xinputrc.econf" "$PKG_PATH/xinputrc"
+    EC_MODE='755'\
+        ellipsis-compiler "$PKG_PATH/xinputrc.econf" "$PKG_PATH/xinputrc"
 }
 
 ##############################################################################
@@ -36,7 +37,8 @@ pkg.pull(){
     # Update the config files
     EC_COMMENT='!'\
         ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
-    ellipsis-compiler "$PKG_PATH/xinputrc.econf" "$PKG_PATH/xinputrc"
+    EC_MODE='755'\
+        ellipsis-compiler "$PKG_PATH/xinputrc.econf" "$PKG_PATH/xinputrc"
 }
 
 ##############################################################################
