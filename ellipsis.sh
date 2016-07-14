@@ -23,7 +23,11 @@ pkg.install() {
 
 # Link package
 pkg.link() {
+    # Link into ~/.config/x
+    mkdir -p "$ELLIPSIS_HOME/.config"
     fs.link_file "$PKG_PATH" "$ELLIPSIS_HOME/.config/x"
+
+    # Link files
     fs.link_file "$PKG_PATH/xinitrc"
     fs.link_file "$PKG_PATH/Xmodmap"
 }
@@ -45,7 +49,10 @@ pkg.pull(){
 
 # Unlink package
 pkg.unlink() {
+    # Remove link in ~/.config
     rm "$ELLIPSIS_HOME/.config/x"
+
+    # Remove links in the home folder
     hooks.unlink
 }
 
@@ -53,7 +60,7 @@ pkg.unlink() {
 
 # Uninstall package
 pkg.uninstall() {
-    : #TODO
+    : #No action
 }
 
 ##############################################################################
