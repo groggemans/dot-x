@@ -7,12 +7,7 @@
 # @license MIT
 ##############################################################################
 
-# Install package
-pkg.install() {
-    if ! utils.cmd_exists ellipsis-compiler; then
-        ellipsis install ellipsis-compiler
-    fi
-
+compile_config() {
     EC_COMMENT='!'\
         ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
 
@@ -21,7 +16,22 @@ pkg.install() {
 
 ##############################################################################
 
-# Link package
+pkg.init() {
+    . "$PKG_PATH/functions.sh"
+}
+
+##############################################################################
+
+pkg.install() {
+    if ! utils.cmd_exists ellipsis-compiler; then
+        ellipsis install ellipsis-compiler
+    fi
+
+    compile_config
+}
+
+##############################################################################
+
 pkg.link() {
     # Link into ~/.config/x
     mkdir -p "$ELLIPSIS_HOME/.config"
@@ -39,15 +49,11 @@ pkg.pull(){
     git.pull
 
     # Update the config files
-    EC_COMMENT='!'\
-        ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
-
-    ellipsis-compiler "$PKG_PATH/xinputrc.econf" "$PKG_PATH/xinputrc"
+    compile_config
 }
 
 ##############################################################################
 
-# Unlink package
 pkg.unlink() {
     # Remove link in ~/.config
     rm "$ELLIPSIS_HOME/.config/x"
@@ -58,7 +64,6 @@ pkg.unlink() {
 
 ##############################################################################
 
-# Uninstall package
 pkg.uninstall() {
     : #No action
 }
