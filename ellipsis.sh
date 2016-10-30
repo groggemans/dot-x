@@ -1,10 +1,17 @@
-#!/usr/bin/env bash
 ##############################################################################
 # @file ellipsis.sh
 # @date June, 2016
 # @author G. Roggemans <g.roggemans@grog.be>
 # @copyright Copyright (c) GROG [https://grog.be] 2016, All Rights Reserved
 # @license MIT
+##############################################################################
+
+# Minimal ellipsis version
+ELLIPSIS_VERSION_DEP='1.9.0'
+
+# Package dependencies (informational/not used!)
+ELLIPSIS_PKG_DEPS='ellipsis/ellipsis-compiler'
+
 ##############################################################################
 
 compile_config() {
@@ -16,14 +23,8 @@ compile_config() {
 
 ##############################################################################
 
-pkg.init() {
-    . "$PKG_PATH/functions.sh"
-}
-
-##############################################################################
-
 pkg.install() {
-    if ! utils.cmd_exists ellipsis-compiler; then
+    if ! ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/ellipsis-compiler"; then
         ellipsis install ellipsis-compiler
     fi
 
@@ -40,6 +41,12 @@ pkg.link() {
     # Link files
     fs.link_file "$PKG_PATH/xinitrc"
     fs.link_file "$PKG_PATH/Xmodmap"
+}
+
+##############################################################################
+
+pkg.init() {
+    . "$PKG_PATH/functions.sh"
 }
 
 ##############################################################################
@@ -65,7 +72,7 @@ pkg.unlink() {
 ##############################################################################
 
 pkg.uninstall() {
-    : #No action
+    : # No action
 }
 
 ##############################################################################
