@@ -24,7 +24,8 @@ compile_config() {
 ##############################################################################
 
 pkg.install() {
-    if ! ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/ellipsis-compiler"; then
+    ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/ellipsis-compiler" 2>&1 > /dev/null
+    if [ $? -ne 0 ]; then
         ellipsis install ellipsis-compiler
     fi
 
