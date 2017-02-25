@@ -4,7 +4,7 @@ My X configuration
 Feel free to use it as a starting point for your own X configuration!
 
 ## Install
-**Requirements:** [Ellipsis][ellipsis] `(>=v1.9.0)`
+**Requirements:** [Ellipsis][ellipsis] `(>=v1.9.4)`
 
 ``` shell
     ellipsis install groggemans/dot-x
