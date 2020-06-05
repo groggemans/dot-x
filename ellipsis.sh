@@ -10,25 +10,21 @@
 ELLIPSIS_VERSION_DEP='1.9.4'
 
 # Package dependencies (informational/not used!)
-ELLIPSIS_PKG_DEPS='ellipsis/ellipsis-compiler'
+ELLIPSIS_PKG_DEPS=''
 
 ##############################################################################
 
 compile_config() {
-    EC_COMMENT='!'\
-        ellipsis-compiler "$PKG_PATH/Xmodmap.econf" "$PKG_PATH/Xmodmap"
-
-    ellipsis-compiler "$PKG_PATH/xinputrc.econf" "$PKG_PATH/xinputrc"
+    cat "$PKG_PATH/xinputrc.main" > "$PKG_PATH/xinputrc"
+    if [ -f ~/.local/x/xinputrc ]; then
+        cat ~/.local/x/xinputrc >> "$PKG_PATH/xinputrc"
+    fi
+    chmod +x "$PKG_PATH/xinputrc"
 }
 
 ##############################################################################
 
 pkg.install() {
-    ellipsis.list_packages | grep "$ELLIPSIS_PACKAGES/ellipsis-compiler" 2>&1 > /dev/null
-    if [ $? -ne 0 ]; then
-        ellipsis install ellipsis-compiler
-    fi
-
     compile_config
 }
 
